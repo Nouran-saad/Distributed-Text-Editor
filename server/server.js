@@ -1,5 +1,6 @@
 const mongoose = require("mongoose")
 const Document = require("./Document")
+let dns = require('dns')
 
 mongoose.connect( "mongodb://text-editor:text-editor@cluster0-shard-00-00.cnxzw.mongodb.net:27017,cluster0-shard-00-01.cnxzw.mongodb.net:27017,cluster0-shard-00-02.cnxzw.mongodb.net:27017/myFirstDatabase?ssl=true&replicaSet=atlas-kn4fco-shard-0&authSource=admin&retryWrites=true&w=majority", {
   useNewUrlParser: true,
@@ -35,6 +36,27 @@ io.on("connection", socket => {
         socket.on("save-document", async data =>{
         await Document.findByIdAndUpdate(documentId, {data})
             })
+
+//-------------------check internet connection---------------------
+            function isInternetOnline(callback) {
+                dns.lookup('google.com', function (error) {
+                    if (error && error.code == "ENOTFOUND") {
+                        callback(false);
+                    } else {
+                        callback(true);
+                    }
+                })
+            }
+            
+            isInternetOnline(function (isOnline) {
+                if (isOnline) {
+                    console.log("internet connection status is online");
+                } else {
+                    socket.emit("internet",isOnline);
+                    console.log("internet connection status is offline");
+            
+                }
+            });
     //  decrease number of users if the users are disconnected*/
     socket.on('disconnect', async function() {
         var documentl = await Document.findById(documentId)

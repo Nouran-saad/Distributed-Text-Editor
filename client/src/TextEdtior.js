@@ -85,6 +85,15 @@ useEffect (()=>{
                 socket.off('get-delta',handler)
             }
         },[socket,quill])
+
+        //-------------------check internet connection---------------------
+        useEffect(()=> {
+            if(socket== null) return
+            socket.on('internet',() => {
+              alert('user is offline')
+            })
+        },[socket])
+        
     
         //--------------------update number of users-----------------
         useEffect(()=> {
