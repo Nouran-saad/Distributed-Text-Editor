@@ -5,6 +5,7 @@ import Quill from "quill"
 import "quill/dist/quill.snow.css"
 import {io} from 'socket.io-client'
 
+const editor2=document.createElement("div") 
 
 const INTERVAL_MS = 2000
 
@@ -13,6 +14,7 @@ export default function TextEdtior() {
 const [socket,setSocket]=useState()
 const [quill,setQuill]=useState()
 const {id: documentId}=useParams()
+const [user,setUser]=useState(1)
 
     useEffect(() => {
         const s= io("http://localhost:3001")  
@@ -29,8 +31,10 @@ useEffect (()=>{
     if(socket== null || quill==null) return // we have to make sure they are defined because this func depends on them
 // once automatically cleans up the event after 
     socket.once ("load-document",document =>{
-        quill.setContents (document)
+        quill.setContents (document.data)
         quill.enable() //we enable only if we get document 
+        editor2.innerHTML="Number of Current Users "+document.user
+
     })
   socket.emit ("get-document",documentId) // send to server document ID
   },[socket,quill,documentId])
@@ -51,7 +55,7 @@ useEffect (()=>{
         }
     },[socket,quill]) // this func depends on socket,quill
     
-    useEffect(() => {
+        useEffect(() => {
         if (socket == null || quill == null) return
     
         const interval = setInterval(() => {
@@ -61,7 +65,7 @@ useEffect (()=>{
         return () => {
           clearInterval(interval)
         }
-      }, [socket, quill])
+        }, [socket, quill])
         //-------------------updating our document---------------------
         useEffect(()=> {
             if(socket== null || quill==null) return
@@ -77,6 +81,14 @@ useEffect (()=>{
             }
         },[socket,quill])
     
+        //--------------------update number of users-----------------
+        useEffect(()=> {
+            if(socket== null) return
+              socket.on('users',user => {
+              setUser(user)
+              editor2.innerHTML="Number of Current Users "+user
+            })
+        },[socket,user])
     
     
     const wrapperRef= useCallback((wrapper) => {
@@ -102,7 +114,11 @@ useEffect (()=>{
           
        const editor=document.createElement("div") //create an object editor
 
+       wrapper.append(editor2) // put editor into wrapper 
+
        wrapper.append(editor) // put editor into wrapper 
+
+       editor2.innerHTML="Number of Current Users "
 
       const q=  new Quill(editor,{theme: "snow",
         modules: {
