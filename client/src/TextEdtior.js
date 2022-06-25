@@ -6,6 +6,8 @@ import "quill/dist/quill.snow.css"
 import {io} from 'socket.io-client'
 
 
+const INTERVAL_MS = 2000
+
 export default function TextEdtior() {
 
 const [socket,setSocket]=useState()
@@ -49,7 +51,17 @@ useEffect (()=>{
         }
     },[socket,quill]) // this func depends on socket,quill
     
+    useEffect(() => {
+        if (socket == null || quill == null) return
     
+        const interval = setInterval(() => {
+          socket.emit("save-document", quill.getContents())
+        }, INTERVAL_MS)
+    
+        return () => {
+          clearInterval(interval)
+        }
+      }, [socket, quill])
         //-------------------updating our document---------------------
         useEffect(()=> {
             if(socket== null || quill==null) return

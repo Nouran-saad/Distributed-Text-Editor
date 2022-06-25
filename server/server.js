@@ -5,6 +5,9 @@ mongoose.connect("mongodb://localhost/realTimeText", {
   useNewUrlParser: true,
   useUnifiedTopology: true
 })
+
+const INTERVAL_MS = 2000
+
 const io=require("socket.io")(3001,{
     cors:
      {
@@ -22,6 +25,10 @@ io.on("connection", socket => {
         socket.on ('send-delta',delta =>{
             socket.broadcast.emit ("get-delta",delta) 
         })
+        
+        socket.on("save-document", async data =>{
+        await Document.findByIdAndUpdate(documentId, {data})
+            })
     })  
 })
 async function findOrCreateDocument(id) {
