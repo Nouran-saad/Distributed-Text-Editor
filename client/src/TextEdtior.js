@@ -34,6 +34,25 @@ const [quill,setQuill]=useState()
             quill.off('text-change',handler)  // upon cleaning up 
         }
     },[socket,quill]) // this func depends on socket,quill
+    
+    
+        //-------------------updating our document---------------------
+        useEffect(()=> {
+            if(socket== null || quill==null) return
+    
+            const handler = (delta)=>{
+              
+                quill.updateContents(delta)
+            }
+            socket.on('get-delta',handler)
+    
+            return () => {
+                socket.off('get-delta',handler)
+            }
+        },[socket,quill])
+    
+    
+    
     const wrapperRef= useCallback((wrapper) => {
 
         var toolbarOptions = [

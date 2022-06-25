@@ -9,7 +9,9 @@ io.on("connection", socket => {
 
 
     socket.on ('send-delta',delta =>{
-        console.log(delta)
-    }) 
+        socket.broadcast.emit ("get-delta",delta) 
+    })
+    
+    
 })
   
