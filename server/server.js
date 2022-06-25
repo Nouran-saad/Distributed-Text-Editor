@@ -1,7 +1,7 @@
 const mongoose = require("mongoose")
 const Document = require("./Document")
 
-mongoose.connect("mongodb://localhost/realTimeText", {
+mongoose.connect( "mongodb://text-editor:text-editor@cluster0-shard-00-00.cnxzw.mongodb.net:27017,cluster0-shard-00-01.cnxzw.mongodb.net:27017,cluster0-shard-00-02.cnxzw.mongodb.net:27017/myFirstDatabase?ssl=true&replicaSet=atlas-kn4fco-shard-0&authSource=admin&retryWrites=true&w=majority", {
   useNewUrlParser: true,
   useUnifiedTopology: true
 })
