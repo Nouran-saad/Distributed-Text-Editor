@@ -6,12 +6,13 @@ const io=require("socket.io")(3001,{
      },
 })
 io.on("connection", socket => {
-
-
-    socket.on ('send-delta',delta =>{
-        socket.broadcast.emit ("get-delta",delta) 
-    })
+    socket.on('get-document', documentId =>{
+        const data=""
+        socket.join(documentId)
+        socket.emit("load-document", data)
     
-    
+        socket.on ('send-delta',delta =>{
+            socket.broadcast.emit ("get-delta",delta) 
+        })
+    })  
 })
-  
