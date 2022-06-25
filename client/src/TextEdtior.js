@@ -1,5 +1,6 @@
 import React from 'react'
 import { useCallback, useEffect,useState } from 'react'
+import {useParams} from 'react-router-dom'  // route to different routes 
 import Quill from "quill"
 import "quill/dist/quill.snow.css"
 import {io} from 'socket.io-client'
@@ -7,8 +8,9 @@ import {io} from 'socket.io-client'
 
 export default function TextEdtior() {
 
-    const [socket,setSocket]=useState()
+const [socket,setSocket]=useState()
 const [quill,setQuill]=useState()
+const {id: documentId}=useParams()
 
     useEffect(() => {
         const s= io("http://localhost:3001")  
@@ -18,6 +20,18 @@ const [quill,setQuill]=useState()
           s.disconnect()  
          }
      },[])
+
+     // useEffect? you tell React that your component needs to do something after render(aka display)
+//-------------------loading document----------------------
+useEffect (()=>{
+    if(socket== null || quill==null) return // we have to make sure they are defined because this func depends on them
+// once automatically cleans up the event after 
+    socket.once ("load-document",document =>{
+        quill.setContents (document)
+        quill.enable() //we enable only if we get document 
+    })
+  socket.emit ("get-document",documentId) // send to server document ID
+  },[socket,quill,documentId])
 
      useEffect(()=> {
         if(socket== null || quill==null) return
@@ -83,7 +97,9 @@ const [quill,setQuill]=useState()
             toolbar: toolbarOptions
             }
         })
-         setQuill(q)
+        q.disable()  // if no document then disbale 
+        q.setText('Loading...') // if disabled display Loading...
+        setQuill(q)
     } ,[])
 
     return (
