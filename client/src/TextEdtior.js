@@ -1,17 +1,39 @@
 import React from 'react'
-import { useCallback, useEffect } from 'react'
+import { useCallback, useEffect,useState } from 'react'
 import Quill from "quill"
 import "quill/dist/quill.snow.css"
 import {io} from 'socket.io-client'
 
+
 export default function TextEdtior() {
+
+    const [socket,setSocket]=useState()
+const [quill,setQuill]=useState()
+
     useEffect(() => {
         const s= io("http://localhost:3001")  
+        setSocket(s)
         
          return () => {
           s.disconnect()  
          }
      },[])
+
+     useEffect(()=> {
+        if(socket== null || quill==null) return
+
+        const handler = (delta,oldDelta,source)=>{
+// we do this because we are only interested in the changes the user makes we do not want
+// any changes done in the library (not by the user to be sent to the clients)
+            if (source!== 'user') return
+            socket.emit("send-delta",delta) // is just what changed in the document -- we send this to the server using socket.emit
+        }
+        quill.on('text-change',handler)  // text-change quill API, handler is called whenever text-change is on
+
+        return () => {
+            quill.off('text-change',handler)  // upon cleaning up 
+        }
+    },[socket,quill]) // this func depends on socket,quill
     const wrapperRef= useCallback((wrapper) => {
 
         var toolbarOptions = [
@@ -37,11 +59,12 @@ export default function TextEdtior() {
 
        wrapper.append(editor) // put editor into wrapper 
 
-        new Quill(editor,{theme: "snow",
+      const q=  new Quill(editor,{theme: "snow",
         modules: {
             toolbar: toolbarOptions
             }
         })
+         setQuill(q)
     } ,[])
 
     return (
