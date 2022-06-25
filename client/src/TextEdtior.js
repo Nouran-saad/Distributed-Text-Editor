@@ -137,7 +137,14 @@ useEffect (()=>{
 
     return (
         <>
-            <div className="text container" ref={wrapperRef}></div>
-        </>
+  <div>
+    <button onClick={()=>{
+        var str = window.location.href;
+        var loc = str.substring(str.indexOf('documents') + 10);
+        navigator.clipboard.writeText(loc);
+    }}>Copy to Clipboard</button>
+  </div>
+  <div className="text container" ref={wrapperRef}></div>
+  </>
     )
 }
