@@ -1,9 +1,17 @@
 import React from 'react'
-import { useCallback } from 'react'
+import { useCallback, useEffect } from 'react'
 import Quill from "quill"
 import "quill/dist/quill.snow.css"
+import {io} from 'socket.io-client'
 
 export default function TextEdtior() {
+    useEffect(() => {
+        const s= io("http://localhost:3001")  
+        
+         return () => {
+          s.disconnect()  
+         }
+     },[])
     const wrapperRef= useCallback((wrapper) => {
 
         var toolbarOptions = [
