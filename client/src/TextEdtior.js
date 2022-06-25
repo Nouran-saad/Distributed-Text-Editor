@@ -15,6 +15,8 @@ const [socket,setSocket]=useState()
 const [quill,setQuill]=useState()
 const {id: documentId}=useParams()
 const [user,setUser]=useState(1)
+const [change,setchange]=useState()
+
 
     useEffect(() => {
         const s= io("http://localhost:3001")  
@@ -47,25 +49,28 @@ useEffect (()=>{
 // any changes done in the library (not by the user to be sent to the clients)
             if (source!== 'user') return
             socket.emit("send-delta",delta) // is just what changed in the document -- we send this to the server using socket.emit
+            setchange(1)
         }
         quill.on('text-change',handler)  // text-change quill API, handler is called whenever text-change is on
 
         return () => {
             quill.off('text-change',handler)  // upon cleaning up 
         }
-    },[socket,quill]) // this func depends on socket,quill
+    },[socket,quill,change])// this func depends on socket,quill
     
         useEffect(() => {
         if (socket == null || quill == null) return
     
         const interval = setInterval(() => {
-          socket.emit("save-document", quill.getContents())
-        }, INTERVAL_MS)
-    
+            if(change ==1){
+                setchange(0)
+              socket.emit("save-document", quill.getContents())
+              }        
+            }, INTERVAL_MS)
         return () => {
           clearInterval(interval)
         }
-        }, [socket, quill])
+        }, [socket, quill,change])
         //-------------------updating our document---------------------
         useEffect(()=> {
             if(socket== null || quill==null) return
