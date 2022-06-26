@@ -84,6 +84,7 @@ Go to client folder and run the following command
   ```sh
   npm start
   ```
+Finally the app should be running on your localhost 3000 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 <p id="Beneficiaries of The Project"></p>
@@ -131,7 +132,7 @@ Step 2: When the website opens it shows a landing page as the one below
 
 Step 3: As you open the document you’ll find the following
 
-- The Copy to Clipboard button copies the URL of the document if you want to pass it to some one this is an easy shortcut to copy it.
+- The Copy to Clipboard button copies the Id of the document if you want to pass it to some one this is an easy shortcut to copy it.
 - The Number of Current Users shows you how many users are working of the document in the time being.
 - Then you have the toolbar this contains the options you need to edit your document.
 
