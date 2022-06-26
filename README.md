@@ -60,8 +60,8 @@ Link to the [Web App with Redis](https://text-editor-redis.netlify.app)
 
 ## Beneficiaries of The Project 
 
-
-xxxxxxxxxxxxxxxxxxxxxxxxxxx
+All kinds of people who want to work collaboratively could benefit from this project. It allows them to create content, collaborate with their friends, family, or colleagues, and get things done.
+This tool could help empower all sorts of technical, business, and non-technical teams to collaborate at high velocity. It allows them to respond to changes fast without the need to keep sending the document through different channels. 
 
 <p id="Detailed Analysis"></p>
 
@@ -82,21 +82,35 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxx
 ## Testing Scenarios and Results
 
 
-xxxxxxxxxxxxxxxxxxxxxxxxxxx
+Several Scenarios were tested including:
+
+- Editing functionalities are working properly
+- Incrementing the number of users as users are connected and decrementing them as users are disconnected and dispalying the output correctly.
+- Each new document is defined by a differrent Id generated randomly.
+- Synchronization between users; changes are displayed real-time.
+- Fault Handling; Error displayed to user when internet is disconnected and user is prevented from editing.
+- Fault Handling; 3 databases working properly so that when one falls the other works.
+- Caching working properly using Redis to reduce API calls to the database.    
 
 <p id="End-User Guide"></p>
 
 ## End-User Guide
 
+Step 1: This project is a web app, to use this project you go to one of the following two links :
 
-xxxxxxxxxxxxxxxxxxxxxxxxxxx
+Link to the [Web App](https://eng.asu.edu.eg/public/staff/)
+
+Link to the [Web App with Redis](https://text-editor-redis.netlify.app)
+
+Step 2: When the website opens it shows a landing page as the one below
+
+[user-guide]
 
 <p id="Youtube Video"></p>
 
 ## Youtube Video
 
-
-xxxxxxxxxxxxxxxxxxxxxxxxxxx
+For Video Click [Here][video]
 
 <p id="Milestones"></p>
 
@@ -115,8 +129,8 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxx
 ## Acknowledgments
 
 
-* **Course Instructor:** [Prof. Dr. Ayman Bahaa](https://eng.asu.edu.eg/public/staff/)
-* **Course Teaching Assistant:** [Eng. ](https://eng.asu.edu.eg/public/staff/)
+* **Course Instructor:** [Prof. Dr. Ayman Bahaa](https://eng.asu.edu.eg/public/staff/ayman.bahaa)
+* **Course Teaching Assistant:** Eng. Mostafa Ashraf
 
 
 
@@ -130,4 +144,5 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxx
 [Mongo]: https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white
 [React]: https://img.shields.io/badge/React_Native-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [Redis]: https://img.shields.io/badge/redis-%23DD0031.svg?&style=for-the-badge&logo=redis&logoColor=white
-
+[user-guide]: README-images/user-guide.jpeg
+[video]: https://youtu.be/ajgiDuLFyG8
