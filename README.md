@@ -13,6 +13,7 @@
 	<ol>
 		<li><a href="#Introduction">Introduction</a></li>
     <li><a href="#Project Description">Project Description</a></li>
+		<li><a href="#Getting Started">Getting Started</a></li>
     <li><a href="#Beneficiaries of The Project">Beneficiaries of The Project</a></li>
 		<li><a href="#Detailed Analysis">Detailed Analysis</a></li>
 		<li><a href="#System Architecture and Design">System Architecture and Design</a></li>
@@ -47,13 +48,37 @@ We were asked to design, implement, and thoroughly test a distributed system. Ou
 Our output is a responsive web app that lets you edit and save docs on the go. Changes are persistent and the document gets saved automatically in real time.
 It is a rich text editor with smart editing and styling tools to help you easily format text and paragraphs. 
  
-Link to the [Web App](https://eng.asu.edu.eg/public/staff/)
+Link to the [Web App](https://text-editor-project.netlify.app/)
 
 Link to the [Web App with Redis](https://text-editor-redis.netlify.app)
 
+<p id="Getting Started"></p>
+
+## Getting Started
+Firstly clone this repo 
+
+### Prepare environment
+
+Then, you need to install all dependencies and devDependencies from the package.json files:
+navigate to client folder and run the following command then navigate to server folder and run it again.
 
 
+  ```sh
+  npm i
+  ```
+  
+### Run project
 
+Go to server folder and run the following command 
+
+  ```sh
+  nodemon server.js
+  ```
+Go to client folder and run the following command 
+
+  ```sh
+  npm start
+  ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 <p id="Beneficiaries of The Project"></p>
@@ -98,13 +123,19 @@ Several Scenarios were tested including:
 
 Step 1: This project is a web app, to use this project you go to one of the following two links :
 
-Link to the [Web App](https://eng.asu.edu.eg/public/staff/)
+Link to the [Web App](https://text-editor-project.netlify.app/)
 
 Link to the [Web App with Redis](https://text-editor-redis.netlify.app)
 
 Step 2: When the website opens it shows a landing page as the one below
 
-[user-guide]
+![user-guide-explaine][user-guide]
+
+Step 3: As you open the document you’ll find the following
+
+- The Copy to Clipboard button copies the URL of the document if you want to pass it to some one this is an easy shortcut to copy it.
+- The Number of Current Users shows you how many users are working of the document in the time being.
+- Then you have the toolbar this contains the options you need to edit your document.
 
 <p id="Youtube Video"></p>
 
