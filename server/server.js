@@ -2,6 +2,7 @@ const mongoose = require("mongoose")
 const Document = require("./Document")
 const redis = require("redis")
 
+
 const redisclient = redis.createClient({
   host:'redis-18043.c80.us-east-1-2.ec2.cloud.redislabs.com',
   port: '18043',
