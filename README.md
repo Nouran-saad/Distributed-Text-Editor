@@ -70,9 +70,11 @@ navigate to client folder and run the following command then navigate to server 
 
 Go to server folder and run the following command 
 
-```sh
+  ```sh
   npm run devStart
   ```
+  
+OR 
 
   ```sh
   nodemon server.js
