@@ -13,7 +13,7 @@
 	<ol>
 		<li><a href="#Introduction">Introduction</a></li>
     <li><a href="#Project Description">Project Description</a></li>
-    <li><a href="# Beneficiaries of The Project">Beneficiaries of The Project</a></li>
+    <li><a href="#Beneficiaries of The Project">Beneficiaries of The Project</a></li>
 		<li><a href="#Detailed Analysis">Detailed Analysis</a></li>
 		<li><a href="#System Architecture and Design">System Architecture and Design</a></li>
 		<li><a href="#Testing Scenarios and Results">Testing Scenarios and Results</a></li>
@@ -23,11 +23,10 @@
 		<li><a href="#Acknowledgments">Acknowledgments</a></li>
 	</ol>
 </details>
+<p id="Introduction"></p>
 
 ## Introduction
 
-
-<p id="Introduction"></p>
 Real-time collaboration makes work go faster, encourages everyone to participate, and may lead to great outcomes.
 So, our goal is to build a Shared document editing, in the style of Google docs. 
 
@@ -38,10 +37,11 @@ So, our goal is to build a Shared document editing, in the style of Google docs.
  ![Node][Node] 
  ![Mongo][Mongo] 
 
+<p id="Project Description"></p>
+
 ## Project Description
 
 
-<p id="Project Description"></p>
 We were asked to design, implement, and thoroughly test a distributed system. Our assigned task was a multi-user distributed text editor.
 Our output is a responsive web app that lets you edit and save docs on the go. Changes are persistent and the document gets saved automatically in real time.
 It is a rich text editor with smart editing and styling tools to help you easily format text and paragraphs. 
@@ -55,56 +55,52 @@ Link to the [Web App with Redis](https://text-editor-redis.netlify.app)
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
+<p id="Beneficiaries of The Project"></p>
 
 ## Beneficiaries of The Project 
 
 
-<p id="Beneficiaries of The Project"></p>
-
 xxxxxxxxxxxxxxxxxxxxxxxxxxx
 
+<p id="Detailed Analysis"></p>
 
 ## Detailed Analysis 
 
 
-<p id="Detailed Analysis"></p>
-
 xxxxxxxxxxxxxxxxxxxxxxxxxxx
 
+<p id="System Architecture and Design"></p>
 
 ## System Architecture and Design
 
 
-<p id="System Architecture and Design"></p>
-
 xxxxxxxxxxxxxxxxxxxxxxxxxxx
 
+<p id="Testing Scenarios and Results"></p>
 
 ## Testing Scenarios and Results
 
 
-<p id="Testing Scenarios and Results"></p>
-
 xxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+<p id="End-User Guide"></p>
 
 ## End-User Guide
 
 
-<p id="End-User Guide"></p>
-
 xxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+<p id="Youtube Video"></p>
 
 ## Youtube Video
 
 
-<p id="Youtube Video"></p>
-
 xxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+<p id="Milestones"></p>
 
 ### Milestones
 
-
-<p id="Milestones"></p>
 
 - [x] Milestone 1
 - [x] Milestone 2
@@ -113,6 +109,7 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 <p align="right">(<a href="#top">back to top</a>)</p> 
 
+<p id="Acknowledgments"></p>
 
 ## Acknowledgments
 
