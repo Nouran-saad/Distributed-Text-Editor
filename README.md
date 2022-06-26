@@ -15,7 +15,6 @@
     <li><a href="#Project Description">Project Description</a></li>
 		<li><a href="#Getting Started">Getting Started</a></li>
     <li><a href="#Beneficiaries of The Project">Beneficiaries of The Project</a></li>
-		<li><a href="#Detailed Analysis">Detailed Analysis</a></li>
 		<li><a href="#System Architecture and Design">System Architecture and Design</a></li>
 		<li><a href="#Testing Scenarios and Results">Testing Scenarios and Results</a></li>
         <li><a href="#End-User Guide">End-User Guide</a></li>
@@ -88,19 +87,12 @@ Go to client folder and run the following command
 All kinds of people who want to work collaboratively could benefit from this project. It allows them to create content, collaborate with their friends, family, or colleagues, and get things done.
 This tool could help empower all sorts of technical, business, and non-technical teams to collaborate at high velocity. It allows them to respond to changes fast without the need to keep sending the document through different channels. 
 
-<p id="Detailed Analysis"></p>
-
-## Detailed Analysis 
-
-
-xxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 <p id="System Architecture and Design"></p>
 
 ## System Architecture and Design
 
-
-xxxxxxxxxxxxxxxxxxxxxxxxxxx
+Our architecture is a three-tier layered architecture where a Client is deployed in a tier, the server on different tier, and database/cache is in a separate tier. Calls between the layers are done through socket api calls.
 
 <p id="Testing Scenarios and Results"></p>
 
@@ -148,9 +140,14 @@ For Video Click [Here][video]
 ### Milestones
 
 
-- [x] Milestone 1
-- [x] Milestone 2
-- [x] Milestone 3
+- [x] Take time to search for components that can be used, any libraries and frameworks that would help us in our implementation and design.
+- [x] Implemented Client-Server model to communicate with each other’s using sockets where:
+	- - Initialized client and server sides
+	- - Initiated the server to get changes and allow multi-users mode
+	- - Synchronize multiple instances of the same document together
+	- - Created Local database using mongo
+- [x] Changing the local database to be global and replicated. Added functionality of Number of users in the system. Added local caching using Redis
+- [x] Globalizing Redis Caching instead of being local to prepare the system to be deployed. Added Landing page, handled internet connection faults. And Finally, Deploying the system.
 
 
 <p align="right">(<a href="#top">back to top</a>)</p> 
@@ -159,6 +156,7 @@ For Video Click [Here][video]
 
 ## Acknowledgments
 
+Special Thanks to 
 
 * **Course Instructor:** [Prof. Dr. Ayman Bahaa](https://eng.asu.edu.eg/public/staff/ayman.bahaa)
 * **Course Teaching Assistant:** Eng. Mostafa Ashraf
