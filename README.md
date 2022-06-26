@@ -41,7 +41,6 @@ So, our goal is to build a Shared document editing, in the style of Google docs.
 
 ## Project Description
 
-***
 
 <p id="Project Description"></p>
 We were asked to design, implement, and thoroughly test a distributed system. Our assigned task was a multi-user distributed text editor.
@@ -60,7 +59,6 @@ Link to the [Web App with Redis](https://text-editor-redis.netlify.app)
 
 ## Beneficiaries of The Project 
 
-***
 
 <p id="Beneficiaries of The Project"></p>
 
@@ -69,7 +67,6 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 ## Detailed Analysis 
 
-***
 
 <p id="Detailed Analysis"></p>
 
@@ -78,7 +75,6 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 ## System Architecture and Design
 
-***
 
 <p id="System Architecture and Design"></p>
 
@@ -87,7 +83,6 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 ## Testing Scenarios and Results
 
-***
 
 <p id="Testing Scenarios and Results"></p>
 
@@ -95,7 +90,6 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 ## End-User Guide
 
-***
 
 <p id="End-User Guide"></p>
 
@@ -103,7 +97,6 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 ## Youtube Video
 
-***
 
 <p id="Youtube Video"></p>
 
@@ -111,7 +104,6 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 ### Milestones
 
-***
 
 <p id="Milestones"></p>
 
@@ -125,7 +117,6 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 ## Acknowledgments
 
-***
 
 * **Course Instructor:** [Prof. Dr. Ayman Bahaa](https://eng.asu.edu.eg/public/staff/)
 * **Course Teaching Assistant:** [Eng. ](https://eng.asu.edu.eg/public/staff/)
