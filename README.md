@@ -32,9 +32,10 @@ So, our goal is to build a Shared document editing, in the style of Google docs.
 
 #### Built With
 
+ ![Node][Node]
  ![socket][socket] 
+ ![Redis][Redis]
  ![React][React] 
- ![Node][Node] 
  ![Mongo][Mongo] 
 
 <p id="Project Description"></p>
@@ -128,5 +129,5 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxx
 [Node]: https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white
 [Mongo]: https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white
 [React]: https://img.shields.io/badge/React_Native-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
-
+[Redis]: https://img.shields.io/badge/redis-%23DD0031.svg?&style=for-the-badge&logo=redis&logoColor=white
 
