@@ -26,7 +26,6 @@
 
 ## Introduction
 
-******
 
 <p id="Introduction"></p>
 Real-time collaboration makes work go faster, encourages everyone to participate, and may lead to great outcomes.
