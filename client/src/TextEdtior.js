@@ -4,7 +4,9 @@ import {useParams} from 'react-router-dom'  // route to different routes
 import Quill from "quill"
 import "quill/dist/quill.snow.css"
 import {io} from 'socket.io-client'
+import { Offline, Online } from "react-detect-offline";
 
+var q;
 const editor2=document.createElement("div") 
 
 const INTERVAL_MS = 2000
@@ -85,14 +87,6 @@ useEffect (()=>{
                 socket.off('get-delta',handler)
             }
         },[socket,quill])
-
-        //-------------------check internet connection---------------------
-        useEffect(()=> {
-            if(socket== null) return
-            socket.on('internet',() => {
-              alert('user is offline')
-            })
-        },[socket])
         
     
         //--------------------update number of users-----------------
@@ -133,8 +127,18 @@ useEffect (()=>{
        wrapper.append(editor) // put editor into wrapper 
 
        editor2.innerHTML="Number of Current Users "
-
-      const q=  new Quill(editor,{theme: "snow",
+    
+       const el = document.getElementById("status")
+        setInterval(() => {
+          if(el.textContent === "You are Offline, Please Check your Connection and Try Again!"){
+            q.disable()
+          }
+          else{
+            q.enable()
+          }
+        }, 1000);
+          
+      q=  new Quill(editor,{theme: "snow",
         modules: {
             toolbar: toolbarOptions
             }
@@ -153,7 +157,17 @@ useEffect (()=>{
         navigator.clipboard.writeText(loc);
     }}>Copy to Clipboard</button>
   </div>
+
+  <div id="status">
+    <Offline id = "offline">
+        You are Offline, Please Check your Connection and Try Again!
+    </Offline>
+
+
+
+  </div>
   <div className="text container" ref={wrapperRef}></div>
+
   </>
     )
 }

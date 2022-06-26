@@ -37,26 +37,6 @@ io.on("connection", socket => {
         await Document.findByIdAndUpdate(documentId, {data})
             })
 
-//-------------------check internet connection---------------------
-            function isInternetOnline(callback) {
-                dns.lookup('google.com', function (error) {
-                    if (error && error.code == "ENOTFOUND") {
-                        callback(false);
-                    } else {
-                        callback(true);
-                    }
-                })
-            }
-            
-            isInternetOnline(function (isOnline) {
-                if (isOnline) {
-                    console.log("internet connection status is online");
-                } else {
-                    socket.emit("internet",isOnline);
-                    console.log("internet connection status is offline");
-            
-                }
-            });
     //  decrease number of users if the users are disconnected*/
     socket.on('disconnect', async function() {
         var documentl = await Document.findById(documentId)
